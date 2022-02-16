@@ -56,3 +56,7 @@ result = number_grater === number_lower; // false 0
 
 result = number_grater != number_lower; // true
 result = number_grater !== number_lower; // true
+
+
+
+
