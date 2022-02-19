@@ -42,21 +42,28 @@ num4 %= 10; //  num4 = num4 % 10;
 
 // Comparison Operators
 
-let number_grater = 1000;
-let number_lower = 500;
+let number_greater = '1000';
+let number_lower = 1000;
 let result;
 
-result = number_grater > number_lower; // true 1
-result = number_grater >= number_lower; // true 1
-result = number_grater < number_lower; // false 0
-result = number_grater <= number_lower; // false 0
+result = number_greater > number_lower; // true 1
+result = number_greater >= number_lower; // true 1
+result = number_greater < number_lower; // false 0
+result = number_greater <= number_lower; // false 0
 
-result = number_grater == number_lower; // false 0
-result = number_grater === number_lower; // false 0
+result = number_greater == number_lower; // true 1
+result = number_greater === number_lower; // false 0
 
-result = number_grater != number_lower; // true
-result = number_grater !== number_lower; // true
-
-
+result = number_greater != number_lower; // true
+result = number_greater !== number_lower; // true
 
 
+// va و
+// && and
+
+result = number_greater <= 1000 && number_greater%15 == 0 && number_lower>100; // false 0
+
+// ya یا
+// || or
+
+result = number_greater <= 1000  ||  number_lower>100; // true 1
