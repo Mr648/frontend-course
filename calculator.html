@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Calculator</title>
+</head>
+<body>
+<form action="#" id="calculator">
+    <input type="number" id="first_number" placeholder="First Number">
+    <input type="number" id="second_number" placeholder="Second Number">
+    <select id="operator">
+        <option value="none">none</option>
+        <option value="+">+</option>
+        <option value="-">-</option>
+        <option value="*">*</option>
+        <option value="/">/</option>
+        <option value="^">^</option>
+        <option value="%">%</option>
+    </select>
+    <button type="submit" onclick="calculate()">=</button>
+    <h3 id="result">0</h3>
+</form>
+<script src="resource/js/calculator.js"></script>
+
+</body>
+</html>
