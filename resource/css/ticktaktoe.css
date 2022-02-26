@@ -1,0 +1,33 @@
+
+
+
+.cell {
+    /*background-image: linear-gradient(to right, #801a1a 0%, #d0a826 51%, #80781a 100%)*/
+    background: rgba(33, 33, 33, 0.33);
+}
+
+.cell {
+    margin: 10px;
+    padding: 24px;
+    text-align: center;
+    text-transform: uppercase;
+    transition: 0.5s;
+    background-size: 200% auto;
+    color: white;
+    box-shadow: 0 0 5px #21212188;
+    border-radius: 10px;
+    display: inline;
+    width: 96px !important;
+    height: 96px !important;
+}
+
+.cell:hover {
+    background-position: right center; /* change the direction of the change here */
+    color: #fff;
+    text-decoration: none;
+}
+
+
+.row {
+    margin: 64px 8px;
+}

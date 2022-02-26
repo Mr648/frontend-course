@@ -68,3 +68,4 @@ for (let index = 0; index < carts.length; index++) {
 }
 
 document.getElementById('carts').innerHTML = carts_html;
+
