@@ -7,45 +7,67 @@ const SHAPE_CLOSE = 2;
 
 let player = false;
 
-function addEventListener(element) {
-    element.addEventListener('click', function (click) {
-        let shape = parseInt(this.getAttribute('data-shape'));
-        if (shape === 0) {
-            if (player) {
-                element.setAttribute('src', SRC_CLOSE);
-                element.setAttribute('data-shape', SHAPE_CLOSE);
-            } else {
-                element.setAttribute('src', SRC_CIRCLE);
-                element.setAttribute('data-shape', SHAPE_CIRCLE);
-            }
-        } else {
-            if (player) {
-                if (shape === SHAPE_CIRCLE) {
-                    element.setAttribute('src', SRC_CLOSE);
-                    element.setAttribute('data-shape', SHAPE_CLOSE);
-                } else if (shape === SHAPE_CLOSE) {
-                    element.setAttribute('src', SRC_CIRCLE);
-                    element.setAttribute('data-shape', SHAPE_CIRCLE);
-                }
-            } else {
-                if (shape === SHAPE_CIRCLE) {
-                    element.setAttribute('src', SRC_CIRCLE);
-                    element.setAttribute('data-shape', SHAPE_CIRCLE);
-                } else if (shape === SHAPE_CLOSE) {
-                    element.setAttribute('src', SRC_CLOSE);
-                    element.setAttribute('data-shape', SHAPE_CLOSE);
-                }
-            }
+function checkGame() {
+    let buttons = [
+        [
+            "#cell_00",
+            "#cell_01",
+            "#cell_02"
+        ],
+        [
+            "#cell_10",
+            "#cell_11",
+            "#cell_12"
+        ],
+        [
+            "#cell_20",
+            "#cell_21",
+            "#cell_22"
+        ]
+    ];
+
+
+    for (let i = 0; i < 3; i++) {
+        let row = buttons[i];
+        let shapes = [];
+        for (let j = 0; j < row.length; j++) {
+            shapes[j] = $(row[j]).data('shape');
         }
 
-        player = !player;
+        console.log([
+            shapes[0] !== SHAPE_NONE,
+            shapes[0] === shapes[1] ,
+            shapes[1] === shapes[2]
+        ]);
+        if (shapes[0] !== SHAPE_NONE && shapes[0] === shapes[1] && shapes[1] === shapes[2]) {
+            let name;
+            /*if (player) {
+                name = "Player One";
+            } else {
+                name = "Player Two";
+            }*/
+            name = player ? "Player One" : "Player Two";
+            alert("The " + name + " Is Winner.");
+        }
+    }
+}
+
+// array
+let buttons = $('.cell').each(function(){
+    $(this).click(function (evt) {
+        let shape = parseInt($(this).data('shape'));
+
+        if (shape === 0) {
+            if (player) {
+                $(this).attr('src', SRC_CLOSE);
+                $(this).data('shape', SHAPE_CLOSE);
+            } else {
+                $(this).attr('src', SRC_CIRCLE);
+                $(this).data('shape', SHAPE_CIRCLE);
+            }
+        }
+        checkGame();
+        // clearGame()
+        player = !player; // true -> false, false -> true
     });
-}
-
-
-let buttons = document.getElementsByClassName('cell');
-
-for (let i = 0; i < buttons.length; i++) {
-    let btn = buttons[i];
-    addEventListener(btn);
-}
+});
